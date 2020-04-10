@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <About />
+    <Request1 />
     <Request2 />
   </div>
 </template>
 
 <script>
-import About from "./components/About.vue";
+import Request1 from "./components/Request1.vue";
 import Request2 from "./components/Request2.vue";
 
 export default {
   name: "App",
   components: {
-    About,
+    Request1,
     Request2
   }
 };

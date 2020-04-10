@@ -45,10 +45,12 @@ export default {
   }),
   mounted() {
     axios
-      .get("http://corona-api.com/countries")
-      .then(response => {
-        this.info = response.data;
-        console.log(this.info);
+      .get("https://corona-api.com/countries")
+      .then(function(response) {
+        // handle success
+        const userData = response.data;
+        console.log(userData);
+        return userData;
       })
       .catch(error => {
         this.errored = true;
