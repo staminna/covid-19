@@ -33,7 +33,7 @@ import axios from "axios";
 import CountryChart from "./Chart.vue";
 
 export default {
-  name: "About",
+  name: "Request2",
   components: {
     CountryChart
   },
@@ -45,7 +45,7 @@ export default {
   }),
   mounted() {
     axios
-      .get("https://pomber.github.io/covid19/timeseries.json")
+      .get("http://corona-api.com/countries")
       .then(response => {
         this.info = response.data;
         console.log(this.info);

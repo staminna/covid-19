@@ -6,8 +6,8 @@ export default {
   props: ["countrydata"],
   data: () => ({
     deathsColor: "#f00",
-    confirmedColor: "#036",
-    recoveredColor: "#053",
+    confirmedColor: "#fa0",
+    recoveredColor: "#0F3",
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -64,17 +64,17 @@ export default {
         labels: this.countrydata.map(day => day.date),
         datasets: [
           {
-            label: `Mortes (${this.lastDay.deaths})`,
+            label: `Deaths (${this.lastDay.deaths})`,
             data: this.countrydata.map(day => ({
               x: day.date,
               y: day.deaths || null
             })),
             borderColor: this.deathsColor,
-            backgroundColor: "#FFF0",
+            backgroundColor: "#000",
             pointBackgroundColor: "#fff"
           },
           {
-            label: `Recuperados (${this.lastDay.recovered})`,
+            label: `Recovered (${this.lastDay.recovered})`,
             data: this.countrydata.map(day => ({
               x: day.date,
               y: day.recovered || null
@@ -84,7 +84,7 @@ export default {
             backgroundColor: this.recoveredColor + "6"
           },
           {
-            label: `Confirmados (${this.lastDay.confirmed})`,
+            label: `Confirmed (${this.lastDay.confirmed})`,
             data: this.countrydata.map(day => ({
               x: day.date,
               y: day.confirmed || null
@@ -94,8 +94,8 @@ export default {
             backgroundColor: this.confirmedColor + "c"
           },
           {
-            label: `Activos (${this.activeCount})`,
-            borderColor: "#eee",
+            label: `Active (${this.activeCount})`,
+            borderColor: "#f00",
             backgroundColor: "transparent",
             pointBackgroundColor: "#fff",
             data: this.countrydata.map(day => ({
