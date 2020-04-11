@@ -33,7 +33,7 @@ import axios from "axios";
 import CountryChart from "./Chart.vue";
 
 export default {
-  name: "About",
+  name: "Request1",
   components: {
     CountryChart
   },

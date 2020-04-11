@@ -30,7 +30,7 @@
 
 <script>
 import axios from "axios";
-import CountryChart from "./Chart.vue";
+import CountryChart from "./WHOChart.vue";
 
 export default {
   name: "Request2",
@@ -46,11 +46,9 @@ export default {
   mounted() {
     axios
       .get("https://corona-api.com/countries")
-      .then(function(response) {
-        // handle success
-        const userData = response.data;
-        console.log(userData);
-        return userData;
+      .then(response => {
+        this.info = response.data.data;
+        console.log(this.info);
       })
       .catch(error => {
         this.errored = true;
