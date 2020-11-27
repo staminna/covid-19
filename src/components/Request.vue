@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Covid-19 cases by Country</h1>
+    <h2>Data from John Hopkins</h2>
     <section v-if="errored">
       <p>
         We're sorry, we're not able to retrieve this information at the moment,
@@ -33,7 +34,7 @@ import axios from "axios";
 import CountryChart from "./Chart.vue";
 
 export default {
-  name: "Request1",
+  name: "Request",
   components: {
     CountryChart
   },
@@ -48,6 +49,7 @@ export default {
       .get("https://pomber.github.io/covid19/timeseries.json")
       .then(response => {
         this.info = response.data;
+        console.log("Request 1 typeof", typeof this.info);
         console.log(this.info);
       })
       .catch(error => {
@@ -57,6 +59,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 h3 {
   margin: 40px 0 0;

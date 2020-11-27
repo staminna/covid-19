@@ -1,36 +1,3 @@
-<script>
-import axios from "axios";
-import CountryChart2 from "./WHOChart.vue";
-
-export default {
-  name: "Request2",
-  components: {
-    CountryChart2
-  },
-  data: () => ({
-    info: null,
-    loading: true,
-    errored: false,
-    country: null
-  }),
-  mounted() {
-    axios
-      .get("https://corona-api.com/countries")
-      .then(response => {
-        this.info = response.data.data;
-        let listOfObjects = Object.keys(this.info).map(key => {
-          console.log("Request 2 type of response", typeof this.info[key]);
-          return this.info[key];
-        });
-      })
-      .catch(error => {
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
-  }
-};
-</script>
-
 <template>
   <div>
     <h1>World Health Organization Covid-19 cases by Country</h1>
@@ -46,18 +13,51 @@ export default {
       <div v-else>
         <select v-model="country" class="option">
           <option :value="null">-- Select Country --</option>
-          <option v-for="value in info" :key="value.code">
-            {{ value.name }}
-          </option>
+          <option
+            v-for="(data, name) in info"
+            :value="{ data, name }"
+            :key="name"
+            v-text="name"
+          ></option>
         </select>
         <div v-if="country">
-          <CountryChart2 :countrydata2="country.value" />
+          <CountryChart :countrydata="country" />
         </div>
       </div>
     </section>
   </div>
 </template>
 
+<script>
+import axios from "axios";
+import CountryChart from "./Chart.vue";
+
+export default {
+  name: "Request2",
+  components: {
+    CountryChart
+  },
+  data: () => ({
+    info: null,
+    loading: true,
+    errored: false,
+    country: null
+  }),
+  mounted() {
+    axios
+      .get("https://corona-api.com/countries")
+      .then(response => {
+        this.info = response.data.data;
+        console.log("Request 1 typeof", typeof this.info);
+        console.log(this.info);
+      })
+      .catch(error => {
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  }
+};
+</script>
 <style scoped>
 h3 {
   margin: 40px 0 0;

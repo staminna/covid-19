@@ -61,7 +61,7 @@ export default {
     },
     chartdata() {
       return {
-        labels: this.countrydata.map(day => day.updated_at),
+        labels: this.countrydata.map(day => day.date),
         datasets: [
           {
             label: `Deaths (${this.lastDay.deaths})`,

@@ -1,29 +1,50 @@
 <template>
   <div id="app">
-    <Request1 />
+    <Request />
     <Request2 />
   </div>
 </template>
 
 <script>
-import Request1 from "./components/Request1.vue";
+import Request from "./components/Request.vue";
 import Request2 from "./components/Request2.vue";
 
 export default {
   name: "App",
   components: {
-    Request1,
-    Request2
+    Request
+    // Request2
   }
 };
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
+}
+
+h1 {
+  padding-top: 50px;
+  color: black;
+}
+
+html {
+  height: 97.5%;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+html {
+  background: white;
+}
+
+body {
+  margin: 0px;
+  background-color: #aaa;
+  border-radius: 50px;
+  height: 97.5%;
 }
 </style>
