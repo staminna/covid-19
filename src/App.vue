@@ -1,19 +1,16 @@
 <template>
   <div id="app">
     <Request />
-    <Request2 />
   </div>
 </template>
 
 <script>
 import Request from "./components/Request.vue";
-import Request2 from "./components/Request2.vue";
 
 export default {
   name: "App",
   components: {
     Request
-    // Request2
   }
 };
 </script>
