@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Covid-19 cases by Country</h1>
+    <h1>World Health Organization Covid-19 cases by Country</h1>
     <section v-if="errored">
       <p>
         We're sorry, we're not able to retrieve this information at the moment,
@@ -11,8 +11,8 @@
     <section v-else>
       <div v-if="loading">Loading...</div>
       <div v-else>
-        <select v-model="country">
-          <option :value="null">-- no selection --</option>
+        <select v-model="country" class="option">
+          <option :value="null">-- Select Country --</option>
           <option
             v-for="(data, name) in info"
             :value="{ data, name }"
@@ -21,7 +21,7 @@
           ></option>
         </select>
         <div v-if="country">
-          <CountryChart :countrydata="country.data" />
+          <CountryChart :countrydata="country" />
         </div>
       </div>
     </section>
@@ -33,7 +33,7 @@ import axios from "axios";
 import CountryChart from "./Chart.vue";
 
 export default {
-  name: "About",
+  name: "Request2",
   components: {
     CountryChart
   },
@@ -45,10 +45,11 @@ export default {
   }),
   mounted() {
     axios
-      .get("https://pomber.github.io/covid19/timeseries.json")
+      .get("https://corona-api.com/countries")
       .then(response => {
-        this.info = response.data;
-        // console.log(this.info);
+        this.info = response.data.data;
+        console.log("Request 1 typeof", typeof this.info);
+        console.log(this.info);
       })
       .catch(error => {
         this.errored = true;

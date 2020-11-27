@@ -1,26 +1,47 @@
 <template>
   <div id="app">
-    <About />
+    <Request />
   </div>
 </template>
 
 <script>
-import About from "./components/About.vue";
+import Request from "./components/Request.vue";
 
 export default {
   name: "App",
   components: {
-    About
+    Request
   }
 };
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
+}
+
+h1 {
+  padding-top: 50px;
+  color: black;
+}
+
+html {
+  height: 97.5%;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+html {
+  background: white;
+}
+
+body {
+  margin: 0px;
+  background-color: #aaa;
+  border-radius: 50px;
+  height: 97.5%;
 }
 </style>

@@ -113,7 +113,7 @@ export default {
     },
     resizeChart() {
       this.$refs.canvas.parentNode.style.height = "calc(100vh - 180px)";
-      this.$refs.canvas.parentNode.style.width = "calc(100vw - 60px)";
+      this.$refs.canvas.parentNode.style.width = "calc(100vw - 30px)";
     }
   },
   watch: {
