@@ -28,13 +28,11 @@ h1 {
   color: black;
 }
 
-html {
+html,
+.app {
   height: 97.5%;
   padding-right: 16px;
   padding-left: 16px;
-}
-
-html {
   background: white;
 }
 
@@ -42,6 +40,5 @@ body {
   margin: 0px;
   background-color: #aaa;
   border-radius: 50px;
-  height: 97.5%;
 }
 </style>

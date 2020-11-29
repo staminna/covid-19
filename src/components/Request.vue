@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Covid-19 cases by Country</h1>
-    <h2>Data from John Hopkins</h2>
+    <h1>Covid-19 cases</h1>
+    <h2>Data from John Hopkins University</h2>
     <section v-if="errored">
       <p>
         We're sorry, we're not able to retrieve this information at the moment,
