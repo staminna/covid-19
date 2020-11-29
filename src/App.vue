@@ -42,6 +42,6 @@ body {
   margin: 0px;
   background-color: #aaa;
   border-radius: 50px;
-  height: 97.5%;
+  height: 100%;
 }
 </style>
